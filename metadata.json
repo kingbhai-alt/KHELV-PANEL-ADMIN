@@ -1,0 +1,6 @@
+{
+  "name": "JUJUTSU CYBER TERMINAL - Key Generator",
+  "description": "High-security cyberpunk cryptographic license key generator and manager for Jujutsu Cyber Terminal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
