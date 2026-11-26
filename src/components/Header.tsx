@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ onLock, onOpenVerifier }) => {
           <div>
             <div className="flex items-center gap-2">
               <span className="font-mono font-bold text-lg tracking-wider text-slate-100">
-                KHELV PENEL
+                JUJUTSU CYBER TERMINAL
               </span>
               <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-950/70 border border-cyan-400/40 text-cyan-300">
                 HMAC-SHA256
@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({ onLock, onOpenVerifier }) => {
           <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
           <span className="text-slate-400">CIPHER:</span>
           <span className="text-cyan-400 font-semibold truncate max-w-[220px]" title={MASTER_SECRET}>
-            KHELV_PENEL_CIPHER_...984712
+            JUJUTSU_KEY_CIPHER_...984712
           </span>
           <button
             onClick={handleCopySecret}

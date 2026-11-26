@@ -18,7 +18,7 @@ export const ShareKeyModal: React.FC<ShareKeyModalProps> = ({ keyRecord, onClose
     : new Date(keyRecord.expirySeconds * 1000).toLocaleString();
 
   // Template 1: Discord Markdown
-  const discordTemplate = `⚡ **KHELV PENEL // OFFICIAL LICENSE KEY** ⚡
+  const discordTemplate = `⚡ **JUJUTSU CYBER TERMINAL // OFFICIAL LICENSE KEY** ⚡
 ───────────────────────────────────
 🔑 **License Key:**
 \`\`\`
@@ -29,10 +29,10 @@ ${keyRecord.key}
 ⏳ **Duration:** ${keyRecord.duration}
 📅 **Expires:** ${expiryDateString}
 ───────────────────────────────────
-*Instructions:* Paste the key into Khelv Penel to activate access.`;
+*Instructions:* Paste the key into Jujutsu Predictor to activate access.`;
 
   // Template 2: Telegram / WhatsApp Friendly
-  const chatTemplate = `✨ KHELV PENEL - LICENSE KEY ✨
+  const chatTemplate = `✨ JUJUTSU CYBER TERMINAL - LICENSE KEY ✨
 
 Key:
 ${keyRecord.key}
@@ -42,7 +42,7 @@ Duration: ${keyRecord.duration}
 Client: ${keyRecord.clientName || 'General Access'}
 Valid Until: ${expiryDateString}
 
-Paste into your Khelv Penel app to unlock features immediately.`;
+Paste into your Jujutsu app to unlock features immediately.`;
 
   const handleCopy = (text: string, type: string) => {
     sounds.playCopySuccess();

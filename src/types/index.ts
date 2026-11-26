@@ -6,14 +6,14 @@ export type KeyStatus = 'ACTIVE' | 'EXPIRED' | 'REVOKED';
 
 export interface LicenseKeyRecord {
   id: string; // unique ID
-  key: string; // full KHELVPENEL-TIER-DURATION-KID-EXPHEX-SIG
+  key: string; // full JUJUTSU-TIER-DURATION-KID-EXPHEX-SIG
   tier: KeyTier;
   duration: KeyDuration;
   kid: string; // 8-char hex
   expHex: string; // Hex representation of expiry seconds
   expirySeconds: number; // Unix timestamp in seconds
   sig: string; // 16-char hex signature
-  payload: string; // KLP:TIER:DURATION:KID:expirySeconds
+  payload: string; // JJS:TIER:DURATION:KID:expirySeconds
   clientName?: string;
   createdAt: number; // ms timestamp
   status: KeyStatus;

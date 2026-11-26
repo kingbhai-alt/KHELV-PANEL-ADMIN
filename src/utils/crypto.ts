@@ -1,6 +1,6 @@
 import { KeyDuration, KeyTier, LicenseKeyRecord, VerificationResult } from '../types';
 
-export const MASTER_SECRET = 'KHELV_PENEL_KEY_CIPHER_2026_MASTER_SECRET_984712';
+export const MASTER_SECRET = 'JUJUTSU_KEY_CIPHER_2026_MASTER_SECRET_984712';
 
 export const DURATION_SECONDS_MAP: Record<KeyDuration, number> = {
   '1H': 60 * 60, // 3,600s
@@ -94,14 +94,14 @@ export async function createLicenseKey(options: {
   // KID (8 hex uppercase)
   const kid = (customKid && customKid.trim().length === 8 ? customKid.trim() : generateKid()).toUpperCase();
 
-  // Payload structure: "KLP:" + TIER + ":" + DURATION + ":" + KID + ":" + expirySeconds
-  const payload = `KLP:${tier}:${duration}:${kid}:${expirySeconds}`;
+  // Payload structure: "JJS:" + TIER + ":" + DURATION + ":" + KID + ":" + expirySeconds
+  const payload = `JJS:${tier}:${duration}:${kid}:${expirySeconds}`;
 
   // Compute 16-hex HMAC-SHA256
   const sig = await computeHmacSig(payload);
 
-  // Full key format: KHELVPENEL-[TIER]-[DURATION]-[KID]-[EXPHEX]-[SIG]
-  const key = `KHELVPENEL-${tier}-${duration}-${kid}-${expHex}-${sig}`;
+  // Full key format: JUJUTSU-[TIER]-[DURATION]-[KID]-[EXPHEX]-[SIG]
+  const key = `JUJUTSU-${tier}-${duration}-${kid}-${expHex}-${sig}`;
 
   const record: LicenseKeyRecord = {
     id: `key_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
@@ -128,23 +128,15 @@ export async function verifyLicenseKey(rawKey: string): Promise<VerificationResu
   const trimmed = rawKey.trim().toUpperCase();
   const parts = trimmed.split('-');
 
-  // Must match KHELVPENEL-[TIER]-[DURATION]-[KID]-[EXPHEX]-[SIG] (also accepts KHELV_PENEL or KHELV-PENEL)
-  let normalizedParts = parts;
-  if (parts.length === 7 && parts[0] === 'KHELV' && parts[1] === 'PENEL') {
-    normalizedParts = ['KHELVPENEL', ...parts.slice(2)];
-  }
-
-  if (
-    normalizedParts.length !== 6 ||
-    (normalizedParts[0] !== 'KHELVPENEL' && normalizedParts[0] !== 'KHELV_PENEL')
-  ) {
+  // Must match JUJUTSU-[TIER]-[DURATION]-[KID]-[EXPHEX]-[SIG]
+  if (parts.length !== 6 || parts[0] !== 'JUJUTSU') {
     return {
       valid: false,
-      reason: 'Invalid format. Expected format: KHELVPENEL-[TIER]-[DURATION]-[KID]-[EXPHEX]-[SIG]'
+      reason: 'Invalid format. Expected format: JUJUTSU-[TIER]-[DURATION]-[KID]-[EXPHEX]-[SIG]'
     };
   }
 
-  const [, tierStr, durationStr, kid, expHex, sig] = normalizedParts;
+  const [, tierStr, durationStr, kid, expHex, sig] = parts;
 
   // Validate Tier
   const validTiers: KeyTier[] = ['VIP', 'PREMIUM', 'ENTERPRISE', 'ADMIN'];
@@ -190,7 +182,7 @@ export async function verifyLicenseKey(rawKey: string): Promise<VerificationResu
   }
 
   // Reconstruct payload and recompute signature
-  const payload = `KLP:${tierStr}:${durationStr}:${kid}:${expirySeconds}`;
+  const payload = `JJS:${tierStr}:${durationStr}:${kid}:${expirySeconds}`;
   const computedSig = await computeHmacSig(payload);
 
   const signatureMatches = computedSig === sig;

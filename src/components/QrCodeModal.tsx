@@ -52,7 +52,7 @@ export const QrCodeModal: React.FC<QrCodeModalProps> = ({ keyRecord, onClose }) 
     if (!dataUrl) return;
     const a = document.createElement('a');
     a.href = dataUrl;
-    a.download = `khelv-penel-qr-${keyRecord.kid}.png`;
+    a.download = `jujutsu-qr-${keyRecord.kid}.png`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -78,7 +78,7 @@ export const QrCodeModal: React.FC<QrCodeModalProps> = ({ keyRecord, onClose }) 
             Encrypted License QR
           </h3>
           <p className="text-xs text-cyan-400/80 font-mono">
-            Scan to redeem in Khelv Penel App
+            Scan to redeem in Jujutsu Predictor App
           </p>
         </div>
 

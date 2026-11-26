@@ -108,7 +108,7 @@ export const AdminLockScreen: React.FC<AdminLockScreenProps> = ({ onUnlock }) =>
               )}
             </div>
             <h1 className="text-xl sm:text-2xl font-bold tracking-wider text-slate-100 font-mono">
-              KHELV PENEL
+              JUJUTSU CYBER TERMINAL
             </h1>
             <p className="text-xs uppercase tracking-widest text-cyan-400/80 mt-1 font-mono">
               [ CLASSIFIED ADMIN KEY GENERATOR ]

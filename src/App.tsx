@@ -14,7 +14,7 @@ import { KeyVerifierModal } from './components/KeyVerifierModal';
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
-      return sessionStorage.getItem('KHELV_PENEL_ADMIN_AUTH') === 'true';
+      return sessionStorage.getItem('JUJUTSU_ADMIN_AUTH') === 'true';
     }
     return false;
   });
@@ -35,15 +35,15 @@ export default function App() {
       // Seed initial example key from user prompt
       const seedKey: LicenseKeyRecord = {
         id: 'key_prompt_example',
-        key: 'KHELVPENEL-VIP-7D-E1E4C16F-6B49D200-0D55223298696F20',
+        key: 'JUJUTSU-VIP-7D-E1E4C16F-6AD8A904-4855686F134E9907',
         tier: 'VIP',
         duration: '7D',
         kid: 'E1E4C16F',
-        expHex: '6B49D200',
-        expirySeconds: 1800000000,
-        sig: '0D55223298696F20',
-        payload: 'KLP:VIP:7D:E1E4C16F:1800000000',
-        clientName: 'Khelv Penel Demo',
+        expHex: '6AD8A904',
+        expirySeconds: 1792583940,
+        sig: '4855686F134E9907',
+        payload: 'JJS:VIP:7D:E1E4C16F:1792583940',
+        clientName: 'Tokyo Jujutsu Predictor Demo',
         createdAt: Date.now() - 3600000,
         status: 'ACTIVE'
       };
@@ -56,12 +56,12 @@ export default function App() {
 
   const handleUnlock = () => {
     setIsAuthenticated(true);
-    sessionStorage.setItem('KHELV_PENEL_ADMIN_AUTH', 'true');
+    sessionStorage.setItem('JUJUTSU_ADMIN_AUTH', 'true');
   };
 
   const handleLock = () => {
     setIsAuthenticated(false);
-    sessionStorage.removeItem('KHELV_PENEL_ADMIN_AUTH');
+    sessionStorage.removeItem('JUJUTSU_ADMIN_AUTH');
   };
 
   const handleKeysGenerated = (newKeys: LicenseKeyRecord[]) => {
