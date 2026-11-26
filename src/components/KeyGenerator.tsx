@@ -202,10 +202,10 @@ export const KeyGenerator: React.FC<KeyGeneratorProps> = ({ onKeysGenerated }) =
               <Layers className="w-3.5 h-3.5" />
               CIPHER PAYLOAD SPECIFICATION
             </span>
-            <span className="text-slate-500">FORMAT: JUJUTSU-[TIER]-[DUR]-[KID]-[EXPHEX]-[SIG]</span>
+            <span className="text-slate-500">FORMAT: KHELVPENEL-[TIER]-[DUR]-[KID]-[EXPHEX]-[SIG]</span>
           </div>
           <div className="text-slate-300 break-all bg-[#090e1f] px-3 py-2 rounded border border-slate-800/80">
-            <span className="text-cyan-400">JUJUTSU</span>-
+            <span className="text-cyan-400">KHELVPENEL</span>-
             <span className="text-violet-400 font-bold">{tier}</span>-
             <span className="text-amber-400 font-bold">{duration}</span>-
             <span className="text-slate-400">[8-HEX-KID]</span>-

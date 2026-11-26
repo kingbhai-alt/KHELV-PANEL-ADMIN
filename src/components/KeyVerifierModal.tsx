@@ -19,7 +19,7 @@ interface KeyVerifierModalProps {
   onClose: () => void;
 }
 
-const EXAMPLE_KEY = 'JUJUTSU-VIP-7D-E1E4C16F-6AD8A904-4855686F134E9907';
+const EXAMPLE_KEY = 'KHELVPENEL-VIP-7D-E1E4C16F-6B49D200-0D55223298696F20';
 
 export const KeyVerifierModal: React.FC<KeyVerifierModalProps> = ({ initialKey = '', onClose }) => {
   const [inputKey, setInputKey] = useState(initialKey || '');
@@ -84,7 +84,7 @@ export const KeyVerifierModal: React.FC<KeyVerifierModalProps> = ({ initialKey =
               Cryptographic Key Inspector & Verifier
             </h3>
             <p className="text-xs text-cyan-400/80 font-mono">
-              Validates HMAC-SHA256 signatures against Jujutsu Master Secret
+              Validates HMAC-SHA256 signatures against Khelv Penel Master Secret
             </p>
           </div>
         </div>
@@ -108,7 +108,7 @@ export const KeyVerifierModal: React.FC<KeyVerifierModalProps> = ({ initialKey =
                 type="text"
                 value={inputKey}
                 onChange={(e) => setInputKey(e.target.value)}
-                placeholder="JUJUTSU-TIER-DURATION-KID-EXPHEX-SIG"
+                placeholder="KHELVPENEL-TIER-DURATION-KID-EXPHEX-SIG"
                 className="flex-1 bg-[#050813] border border-cyan-500/30 focus:border-cyan-400 rounded-lg px-3.5 py-2.5 text-xs font-mono text-cyan-300 outline-none uppercase transition-all"
               />
               <button

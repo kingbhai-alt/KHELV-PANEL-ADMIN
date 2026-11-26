@@ -1,6 +1,6 @@
 import { LicenseKeyRecord, KeyStatus } from '../types';
 
-const STORAGE_KEY = 'JUJUTSU_LICENSE_KEYS_VAULT_V1';
+const STORAGE_KEY = 'KHELV_PENEL_LICENSE_KEYS_VAULT_V1';
 
 export function getStoredKeys(): LicenseKeyRecord[] {
   if (typeof window === 'undefined') return [];
@@ -52,19 +52,19 @@ export function exportKeysAsCsv(keys: LicenseKeyRecord[]): void {
 
   const csvContent = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  downloadBlob(blob, `jujutsu-license-keys-${new Date().toISOString().slice(0, 10)}.csv`);
+  downloadBlob(blob, `khelv-penel-license-keys-${new Date().toISOString().slice(0, 10)}.csv`);
 }
 
 export function exportKeysAsTxt(keys: LicenseKeyRecord[]): void {
   const txtContent = keys.map((k) => k.key).join('\n');
   const blob = new Blob([txtContent], { type: 'text/plain;charset=utf-8;' });
-  downloadBlob(blob, `jujutsu-license-keys-${new Date().toISOString().slice(0, 10)}.txt`);
+  downloadBlob(blob, `khelv-penel-license-keys-${new Date().toISOString().slice(0, 10)}.txt`);
 }
 
 export function exportKeysAsJson(keys: LicenseKeyRecord[]): void {
   const jsonContent = JSON.stringify(keys, null, 2);
   const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
-  downloadBlob(blob, `jujutsu-license-vault-backup-${new Date().toISOString().slice(0, 10)}.json`);
+  downloadBlob(blob, `khelv-penel-license-vault-backup-${new Date().toISOString().slice(0, 10)}.json`);
 }
 
 function downloadBlob(blob: Blob, filename: string) {

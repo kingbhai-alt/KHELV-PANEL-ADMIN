@@ -4,7 +4,7 @@ class SoundManager {
 
   constructor() {
     if (typeof window !== 'undefined') {
-      const storedMute = localStorage.getItem('JUJUTSU_AUDIO_MUTED');
+      const storedMute = localStorage.getItem('KHELV_PENEL_AUDIO_MUTED');
       this.muted = storedMute === 'true';
     }
   }
@@ -28,7 +28,7 @@ class SoundManager {
   public toggleMute(): boolean {
     this.muted = !this.muted;
     if (typeof window !== 'undefined') {
-      localStorage.setItem('JUJUTSU_AUDIO_MUTED', String(this.muted));
+      localStorage.setItem('KHELV_PENEL_AUDIO_MUTED', String(this.muted));
     }
     if (!this.muted) {
       this.playClick();
